@@ -1,0 +1,52 @@
+---
+title: "Shiny Diamonds Price Predicter"
+author: "Joe Yadush"
+date: "November 2, 2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(UsingR)
+data(diamond)
+```
+
+## Shiny Diamonds
+
+This is a shiny application designed to predict the expected price of a diamond (in Singapore Dollars) based on the weight of the diamond.
+
+
+Use the slider to option to look at various weights (measured in carats) of the diamond. A red dot will be plotted
+for you showing the predicted value as well as a printout below the plot of the price.
+
+A linear model was fitted to assist in determining the price. You have the option of displaying the fitted line
+or not with a checbox option underneath the slider.
+
+## Source code and application locations
+
+- The original code can be found on **GitHub** at <https://github.com/yadushj/shinyDiamonds>.
+
+- The application has been published to  **RPubs** at <https://yadushj.shinyapps.io/diamondprice/>.
+
+## About the data
+
+The data is from the **diamond** dataset requiring the **UsingR** package
+
+The data is a set of 48 diamond rings containing price in Singapore dollars 
+based on the size or weight of the diamond (in carats)
+
+```{r diamond, echo = TRUE}
+summary(diamond)
+```
+
+## Inferring a possible price
+
+A quick plot to give initial indication of price. Dont forget to find
+your own price at <https://yadushj.shinyapps.io/diamondprice/>.
+
+```{r}
+plot(diamond$carat, diamond$price, xlab = "Carats",
+                     ylab = "Price (Sin dollars)", bty = "n", pch = 16,
+                     xlim = c(0.15, 0.35), ylim = c(200, 1000))
+```
+
